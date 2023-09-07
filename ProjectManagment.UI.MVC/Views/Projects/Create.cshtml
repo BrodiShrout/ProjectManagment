@@ -1,0 +1,65 @@
+﻿@model ProjectManagment.DATA.EF.Models.Project
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProjectName" class="control-label"></label>
+                <input asp-for="ProjectName" class="form-control" />
+                <span asp-validation-for="ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectNumber" class="control-label"></label>
+                <input asp-for="ProjectNumber" class="form-control" />
+                <span asp-validation-for="ProjectNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectCity" class="control-label"></label>
+                <input asp-for="ProjectCity" class="form-control" />
+                <span asp-validation-for="ProjectCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectState" class="control-label"></label>
+                <input asp-for="ProjectState" class="form-control" />
+                <span asp-validation-for="ProjectState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectManagerId" class="control-label"></label>
+                <select asp-for="ProjectManagerId" class ="form-control" asp-items="ViewBag.ProjectManagerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExelSheet" class="control-label"></label>
+                @*<input asp-for="ExelSheet" class="form-control*@
+                <form method="post" enctype="multipart/form-data">
+                    <input type="file" asp-for="ExelSheet" />
+                    <input type="submit" value="Create" class="btn btn-primary form-group" />
+                </form>
+                <span asp-validation-for="ExelSheet" class="text-danger"></span>
+            </div>
+@*            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>*@
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
