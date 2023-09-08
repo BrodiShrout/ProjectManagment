@@ -43,9 +43,9 @@
             <div class="form-group">
                 <label asp-for="ExelSheet" class="control-label"></label>
                 @*<input asp-for="ExelSheet" class="form-control*@
-                <form method="post" enctype="multipart/form-data">
-                    <input type="file" asp-for="ExelSheet" />
-                    <input type="submit" value="Create" class="btn btn-primary form-group" />
+                <form asp-controller="ProjectController" asp-action="upload" asp-antiforgery="false" enctype="multipart/form-data">
+                    <input name="file" type="file" asp-for="ExelSheet" />
+                    <input type="submit" value="Upload" class="btn btn-primary form-group" />
                 </form>
                 <span asp-validation-for="ExelSheet" class="text-danger"></span>
             </div>
