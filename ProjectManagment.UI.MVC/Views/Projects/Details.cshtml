@@ -1,15 +1,15 @@
 ﻿@model ProjectManagment.DATA.EF.Models.Project
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.ProjectName + "Details";
 }
 
-<h1>Details</h1>
+<h1 class="px-4 pt-3" style="margin-left: 0.6em !important">@ViewData["Title"]</h1>
 
 <div>
-    <h4>Project</h4>
+    @*<h4>Project</h4>*@
     <hr />
-    <dl class="row">
+    <dl class="row" style="margin-left: 3em;">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ProjectName)
         </dt>
@@ -56,6 +56,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ProjectId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.ProjectId" style="margin-left: 3.5em;">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>

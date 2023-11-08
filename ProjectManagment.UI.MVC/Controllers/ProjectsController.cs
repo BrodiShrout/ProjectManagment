@@ -77,6 +77,11 @@ namespace ProjectManagment.UI.MVC.Controllers
             if (ModelState.IsValid)
             {
 
+                #region File Upload - CREATE
+                
+
+                #endregion
+
                 _context.Add(project);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
